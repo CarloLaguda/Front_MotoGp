@@ -1,1 +1,20 @@
-<p>champions works!</p>
+<div class="ms-5 ps-5 pb-1 col-3">
+    <div class="p-3 text-light fs-5">
+        <p>Filtra per numero di mondiali</p>
+        <div>
+            <input type="number" class="mt-1" #nMond>
+        </div>
+        <button class="btn mt-2 btn-light" (click) = "getAllByChampionship(nMond)">Invia</button>
+    </div>
+</div>
+<div class="container p-5">
+    @for(champ of lista_rider_champ; track champ)
+    {
+        <ul class="card list-group list-group-flush container mt-2 pt-2 col-3" style="border-radius: 10px;">
+            <li class="list-group-item">Nome: {{champ.Driver}}</li>
+            <li class="list-group-item">Nazionalit&agrave;: {{champ.Nationality}}</li>
+            <li class="list-group-item">Mondiali vinti: {{champ.World_Championships}}</li>
+        </ul>
+    }
+</div>
+

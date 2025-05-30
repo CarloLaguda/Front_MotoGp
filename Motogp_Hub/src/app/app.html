@@ -1,10 +1,16 @@
 <div class="container-fluid bg-dark">
+    <div>
+        <h1 class="text-light text-center pt-3"><i>MOTOGP</i></h1>
+    </div>
+    <div>
+        <h3 class="text-light text-center pt-3"><i>Seleziona una categoria da visionare</i></h3>
+    </div>
     <ul class="nav justify-content-center p-4 fs-4">
         <li class="nav-item p-4">
-            <a (click) = "stampaPiloti()" class="btn btn-outline-light btn-lg">Piloti</a>
+            <a (click) = "getAllRider()" class="btn btn-outline-light btn-lg">Piloti</a>
         </li>
         <li class="nav-item p-4">
-            <a class="btn btn-outline-light btn-lg">Campionati</a>
+            <a (click)= "getAllRider_By_Championship()" class="btn btn-outline-light btn-lg">Campionati</a>
         </li>
         <li class="nav-item p-4">
             <a class="btn btn-outline-light btn-lg">Pole Position</a>
@@ -17,3 +23,24 @@
         </li>
     </ul>
 </div>
+<div class="bg-dark">
+    @if(allrider_)
+    {
+        <div class="p-5">
+            @for(pil of lista_rider_all; track pil)
+            {
+                <app-all-rider [pilota] = "pil"></app-all-rider>
+            }
+        </div>
+    }
+
+    @if(allrider_Champion){
+        <div class="=p-5">
+            <app-champions></app-champions>
+        </div>
+    }
+</div>
+
+
+
+
