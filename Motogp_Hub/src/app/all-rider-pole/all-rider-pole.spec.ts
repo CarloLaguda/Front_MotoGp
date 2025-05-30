@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Champions } from './champions';
+import { AllRiderPole } from './all-rider-pole';
 
-describe('Champions', () => {
-  let component: Champions;
-  let fixture: ComponentFixture<Champions>;
+describe('AllRiderPole', () => {
+  let component: AllRiderPole;
+  let fixture: ComponentFixture<AllRiderPole>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Champions]
+      imports: [AllRiderPole]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Champions);
+    fixture = TestBed.createComponent(AllRiderPole);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

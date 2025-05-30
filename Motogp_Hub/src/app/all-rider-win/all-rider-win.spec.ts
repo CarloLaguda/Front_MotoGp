@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Win } from './win';
+import { AllRiderWin } from './all-rider-win';
 
-describe('Win', () => {
-  let component: Win;
-  let fixture: ComponentFixture<Win>;
+describe('AllRiderWin', () => {
+  let component: AllRiderWin;
+  let fixture: ComponentFixture<AllRiderWin>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Win]
+      imports: [AllRiderWin]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Win);
+    fixture = TestBed.createComponent(AllRiderWin);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

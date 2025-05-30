@@ -13,13 +13,13 @@
             <a (click)= "getAllRider_By_Championship()" class="btn btn-outline-light btn-lg">Campionati</a>
         </li>
         <li class="nav-item p-4">
-            <a class="btn btn-outline-light btn-lg">Pole Position</a>
+            <a (click)= "getAllRider_By_Pole()" class="btn btn-outline-light btn-lg">Pole Position</a>
         </li>
         <li class="nav-item p-4">
-            <a class="btn btn-outline-light btn-lg">Vittorie</a>
+            <a (click)= "getAllRider_By_Victory()" class="btn btn-outline-light btn-lg">Vittorie</a>
         </li>
         <li class="nav-item p-4">
-            <a class="btn btn-outline-light btn-lg">Nazioni</a>
+            <a (click)= "getAllRider_By_Nation()" class="btn btn-outline-light btn-lg">Nazioni</a>
         </li>
     </ul>
 </div>
@@ -27,6 +27,7 @@
     @if(allrider_)
     {
         <div class="p-5">
+            <hr style="color: white;">
             @for(pil of lista_rider_all; track pil)
             {
                 <app-all-rider [pilota] = "pil"></app-all-rider>
@@ -36,7 +37,73 @@
 
     @if(allrider_Champion){
         <div class="=p-5">
-            <app-champions></app-champions>
+            <div class="ms-5 ps-5 pb-1 col-4">
+                <div class="p-3 text-light fs-5">
+                    <p>Filtra per numero di mondiali, visualizzarai i piloti con numero maggiore o uguale al numero selezionato</p>
+                    <div>
+                        <input type="number" class="mt-1" #nMond>
+                    </div>
+                    <button class="btn mt-2 btn-light" (click) = "getAllByChampionship(nMond)">Invia</button>
+                </div>
+            </div>
+            @for(wch of lista_rider_champ; track wch)
+            {
+                <app-all-rider-champ [pilota] = "wch"></app-all-rider-champ>
+            }
+        </div>
+    }
+
+    @if(allrider_Poles){
+        <div class="=p-5">
+            <div class="ms-5 ps-5 pb-1 col-4">
+                <div class="p-3 text-light fs-5">
+                    <p>Filtra per numero di Pole Position, visualizzarai i piloti con numero maggiore o uguale al numero selezionato</p>
+                    <div>
+                        <input type="number" class="mt-1" #nPole>
+                    </div>
+                    <button class="btn mt-2 btn-light" (click) = "getAllByPole(nPole)">Invia</button>
+                </div>
+            </div>
+            @for(pole of lista_rider_Pole; track pole)
+            {
+                <app-all-rider-pole [pilota] = "pole"></app-all-rider-pole>
+            }
+        </div>
+    }
+
+    @if(allrider_Victory){
+        <div class="=p-5">
+            <div class="ms-5 ps-5 pb-1 col-4">
+                <div class="p-3 text-light fs-5">
+                    <p>Filtra per numero di Vittorie, visualizzarai i piloti con numero maggiore o uguale al numero selezionato</p>
+                    <div>
+                        <input type="number" class="mt-1" #nWin>
+                    </div>
+                    <button class="btn mt-2 btn-light" (click) = "getAllByWin(nWin)">Invia</button>
+                </div>
+            </div>
+            @for(win of lista_rider_Victory; track win)
+            {
+                <app-all-rider-win [pilota] = "win"></app-all-rider-win>
+            }
+        </div>
+    }
+
+    @if(allrider_Nation){
+        <div class="=p-5">
+            <div class="ms-5 ps-5 pb-1 col-4">
+                <div class="p-3 text-light fs-5">
+                    <p>Filtra per Nazione, digitala in italiano </p>
+                    <div>
+                        <input type="text" class="mt-1" #nazione>
+                    </div>
+                    <button class="btn mt-2 btn-light" (click) = "getAllByNaz(nazione)">Invia</button>
+                </div>
+            </div>
+            @for(naz of lista_rider_Nations; track naz)
+            {
+                <app-all-rider-naz [pilota] = "naz"></app-all-rider-naz>
+            }
         </div>
     }
 </div>
