@@ -20,7 +20,7 @@ export class App
   protected title = 'Motogp_Hub';
   loading!: boolean
   obs!: Observable<Rider[]>
-  url: string = "https://5000-carlolaguda-gitpodmysql-7x812ewy0rh.ws-eu120.gitpod.io"
+  url: string = "https://5000-carlolaguda-gitpodmysql-qpusoi1rml7.ws-eu120.gitpod.io"
 
   allrider_!: boolean
   allrider_Champion!: boolean
@@ -134,8 +134,7 @@ export class App
   }
   getAllByNaz(nazione: HTMLInputElement)
   {
-    let newnat = nazione.value.toLocaleLowerCase()
-    newnat = newnat.charAt(0).toUpperCase() + newnat.slice(1).toLowerCase()   
+    let newnat = nazione.value.toUpperCase()
     this.loading = true
     this.obs = this.http.get<Rider[]>(this.url +"/Nations/"+newnat)
     this.obs.subscribe(this.getData_Nation)
