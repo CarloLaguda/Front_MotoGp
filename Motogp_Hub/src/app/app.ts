@@ -20,13 +20,15 @@ export class App
   protected title = 'Motogp_Hub';
   loading!: boolean
   obs!: Observable<Rider[]>
-  url: string = "https://5000-carlolaguda-gitpodmysql-qpusoi1rml7.ws-eu120.gitpod.io"
+  url: string = "https://5000-carlolaguda-gitpodmysql-vtr74bnqwa1.ws-eu120.gitpod.io"
 
   allrider_!: boolean
   allrider_Champion!: boolean
   allrider_Victory!: boolean
   allrider_Poles!: boolean
   allrider_Nation!: boolean
+
+  errore: string = ""
 
   constructor(public http: HttpClient){}
 
@@ -38,6 +40,10 @@ export class App
     this.allrider_Nation = false
     this.allrider_Poles = false
     this.allrider_Victory = false
+
+    this.errore = ""
+
+
     this.loading = true
     this.obs = this.http.get<Rider[]>(this.url)
     this.obs.subscribe(this.getData)
@@ -45,8 +51,13 @@ export class App
   getData = (d: Rider[]) =>
   {
     this.lista_rider_all = d
-    console.log(this.lista_rider_all)
-    this.loading = false
+    if (this.lista_rider_all.length === 0){
+      this.errore = "Nessun pilota trovato :/"
+    }
+    else{
+      console.log(this.lista_rider_all)
+      this.loading = false
+    }
   }
 
 
@@ -58,6 +69,8 @@ export class App
     this.allrider_Nation = false
     this.allrider_Poles = false
     this.allrider_Victory = false
+
+    this.errore = ""
   }
 
   getAllByChampionship(nMond: HTMLInputElement)
@@ -70,8 +83,14 @@ export class App
   getData_Champions = (d: Rider[]) =>
   {
     this.lista_rider_champ = d
-    this.loading = false
-    console.log(this.lista_rider_champ)
+    if (this.lista_rider_champ.length === 0){
+      this.errore = "Nessun pilota trovato :/"
+    }
+    else{
+      console.log(this.lista_rider_champ)
+      this.loading = false
+      this.errore = ""
+    }
   }
 
 
@@ -83,6 +102,8 @@ export class App
     this.allrider_ = false
     this.allrider_Nation = false
     this.allrider_Victory = false
+
+    this.errore = ""
   }
   getAllByPole(nPole: HTMLInputElement)
   {
@@ -94,8 +115,14 @@ export class App
   getData_Pole = (d: Rider[]) =>
   {
     this.lista_rider_Pole = d
-    this.loading = false
-    console.log(this.lista_rider_Pole)
+    if (this.lista_rider_Pole.length === 0){
+      this.errore = "Nessun pilota trovato :/"
+    }
+    else{
+      console.log(this.lista_rider_Pole)
+      this.loading = false
+      this.errore = ""
+    }
   }
 
 
@@ -107,6 +134,8 @@ export class App
     this.allrider_ = false
     this.allrider_Nation = false
     this.allrider_Poles = false
+
+    this.errore = ""
   }
   getAllByWin(nWin: HTMLInputElement)
   {
@@ -118,8 +147,14 @@ export class App
   getData_Win = (d: Rider[]) =>
   {
     this.lista_rider_Victory = d
-    this.loading = false
-    console.log(this.lista_rider_Victory)
+    if (this.lista_rider_Victory.length === 0){
+      this.errore = "Nessun pilota trovato :/"
+    }
+    else{
+      console.log(this.lista_rider_Victory)
+      this.loading = false
+      this.errore = ""
+    }
   }
 
 
@@ -131,6 +166,8 @@ export class App
     this.allrider_Champion = false
     this.allrider_ = false
     this.allrider_Poles = false
+
+    this.errore = ""
   }
   getAllByNaz(nazione: HTMLInputElement)
   {
@@ -143,7 +180,13 @@ export class App
   getData_Nation = (d: Rider[]) =>
   {
     this.lista_rider_Nations = d
-    this.loading = false
-    console.log(this.lista_rider_Nations)
+    if (this.lista_rider_Nations.length === 0){
+      this.errore = "Nessun pilota trovato :/"
+    }
+    else{
+      console.log(this.lista_rider_Nations)
+      this.loading = false
+      this.errore = ""
+    }
   }
 }
